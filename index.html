@@ -13,8 +13,12 @@
     <header class="navbar" id="navbar">
         <!-- Nav wrapper used to restrict max width of navbar -->
         <main class="nav-wrapper">
-        <!-- Logo -->
-        <button><i class="fa-solid fa-bars"></i></button>
+        <!-- Hamburger Menu -->
+        <button class="hamburgerbtn" id="hbtn" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></button>
+        <!-- Hamburger Dropdown -->
+        <div class="hamburgermenu" id="hbmenu">
+
+        </div>
         <!-- Left section of navbar -->
         <section class="left-nav" id="leftnav">
              <!-- H1 will be replaced by logo when made. -->
@@ -22,8 +26,35 @@
 
             <nav>
                 <ul>
-                    <li><a href="#" class="nd"><p>About</p><i class="fa-solid fa-chevron-down"></i></a></li>
-                    <li><a href="#" class="nd"><p>Events</p><i class="fa-solid fa-chevron-down"></i></a></li>
+                    <li class="about dropdownli" dropdown="about">
+                        
+                        <a href="#" class="nd">
+                            <p>About</p>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </a>
+                    
+                    <div class="dropdown-about dropdown-wrapper"  id="about">
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-links">Our Story</a>
+                            <a href="#" class="dropdown-links">Our Team</a>
+                            <a href="#" class="dropdown-links">Sponsors</a>
+                            <a href="#" class="dropdown-links">Outreach</a>
+                        </div>
+                    </div>
+                    </li>
+                    <li class="events dropdownli" dropdown="events">
+                        <a href="#" class="nd">
+                            <p>Events</p>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </a>
+                    
+                        <div class="dropdown-about dropdown-wrapper"  id="events">
+                            <div class="dropdown">
+                                <a href="#" class="dropdown-links">Our Story</a>
+                                <a href="#" class="dropdown-links">Our Team</a>
+                            </div>
+                        </div>
+                    </li>
                     <li><a href="#" class="nd"><p>Blog</p></a></li>
                     <li><a href="#" class="nd"><p>Contact</p></a></li>
                     <!-- <li><button class="themeChange"><i class="fa-solid fa-sun"></i></button></li> -->

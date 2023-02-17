@@ -15,6 +15,7 @@ header {
   position: fixed;
   z-index: 100;
   transition: all 0.3s ease;
+  box-shadow: 0 0 1px white !important;
 }
 header .nav-wrapper {
   padding: 0 1rem;
@@ -23,6 +24,29 @@ header .nav-wrapper {
   justify-content: space-between;
   max-width: 1550px;
   width: 100%;
+  max-height: 80px;
+}
+header .nav-wrapper .hamburgerbtn:hover i {
+  opacity: 1 !important;
+}
+header .nav-wrapper .hamburgerbtn i {
+  transition: none !important;
+}
+header .nav-wrapper .hamburgermenu {
+  width: 350px;
+  height: 600px;
+  background-color: white;
+  position: absolute;
+  top: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+header .nav-wrapper .visible {
+  opacity: 1;
+  pointer-events: all;
 }
 header .nav-wrapper section.left-nav {
   display: flex;
@@ -47,6 +71,7 @@ header .nav-wrapper ul {
 header .nav-wrapper ul li {
   display: inline-block;
   margin: 0 0.8rem;
+  position: relative;
 }
 header .nav-wrapper ul li a {
   display: flex;
@@ -59,10 +84,57 @@ header .nav-wrapper ul li a {
 header .nav-wrapper ul li a i {
   transition: all 0.3s ease;
 }
-header .nav-wrapper ul li:hover {
+header .nav-wrapper ul li .dropdown-wrapper {
+  transition: all 0.3s ease;
+  opacity: 0;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 150px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  border-radius: 0 7.5px;
+  text-align: left;
+  top: 100%;
+  pointer-events: none;
+}
+header .nav-wrapper ul li .dropdown-wrapper .dropdown {
+  background-color: white;
+  padding: 10px;
+  margin-top: 0px;
+  border-radius: 3px;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+header .nav-wrapper ul li .dropdown-wrapper a {
+  color: black !important;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  transition: all 0.2s ease;
+  padding: 0.5rem 0;
+  font-size: 0.95rem;
+}
+header .nav-wrapper ul li .dropdown-wrapper a:hover {
+  color: #2196F3 !important;
+}
+header .nav-wrapper ul li .show {
+  display: block;
+  opacity: 1;
+  pointer-events: all;
+}
+header .nav-wrapper ul li .show .dropdown {
+  margin-top: 12px;
+}
+header .nav-wrapper ul li:hover a:not(.dropdown-links) {
   opacity: 0.8;
 }
-header .nav-wrapper ul li:hover a i {
+header .nav-wrapper ul li:hover a:not(.dropdown-links) i {
   transform: rotate(180deg);
 }
 header .nav-wrapper button {
@@ -117,6 +189,10 @@ header .nav-wrapper button:first-child i {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
+}
+
+header.nav2 {
+  box-shadow: 0 0 1px black !important;
 }
 
 body {
@@ -175,7 +251,6 @@ section.hero .hero-wrapper section.hero-left button {
   gap: 10px;
   position: relative;
   transition: all 0.3s ease;
-  max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
   max-width: fit-content;
   background-color: #DF652B;
@@ -207,7 +282,6 @@ section.hero .hero-wrapper section.hero-left button:hover i {
 }
 section.hero .hero-wrapper section.hero-right {
   flex: 1 1 auto;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   display: flex;
@@ -227,7 +301,6 @@ section.hero .hero-wrapper section.hero-right .code-box, section.hero .hero-wrap
 }
 section.hero .hero-wrapper section.hero-right .results-box {
   min-height: 150px;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   padding-bottom: 15px;
@@ -261,7 +334,7 @@ section.hero .hero-wrapper section.hero-right .results-box button {
   transition: all 0.3s ease;
   margin-top: 10px;
   margin-left: 18px;
-  background-color: #2196F3;
+  background-color: none;
   padding: 0.6rem 0.7rem;
 }
 section.hero .hero-wrapper section.hero-right .results-box button p {
@@ -293,7 +366,6 @@ section.hero .hero-wrapper section.hero-right .results-box button p {
   margin-top: 0 !important;
 }
 section.hero .hero-wrapper section.hero-right .code-box {
-  height: -webkit-fit-content !important;
   height: -moz-fit-content !important;
   height: fit-content !important;
   min-height: 320px;
@@ -397,7 +469,6 @@ section.hero .hero-wrapper section.hero-right .code-box .code .code-line p:first
 @media (max-width: 1075px) {
   section.hero {
     max-height: none !important;
-    height: -webkit-fit-content !important;
     height: -moz-fit-content !important;
     height: fit-content !important;
   }
@@ -425,7 +496,13 @@ section.hero .hero-wrapper section.hero-right .code-box .code .code-line p:first
   header.navbar .nav-wrapper {
     flex-direction: row-reverse;
   }
+  header.navbar .nav-wrapper .hamburgermenu {
+    width: calc(100% - 2rem);
+  }
   header.navbar button:last-child {
+    display: none !important;
+  }
+  .hero-right {
     display: none !important;
   }
 }/*# sourceMappingURL=landing.css.map */

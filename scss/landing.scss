@@ -9,6 +9,10 @@ header {
     @include navbar;
 }
 
+header.nav2 {
+    box-shadow: 0 0 1px black !important;
+}
+
 body {
     background-color: $white;
 }
@@ -106,7 +110,7 @@ section.hero {
                     @include btn-styles;
                     margin-top: 10px;
                     margin-left: 18px;
-                    background-color: $primary-blue;
+                    background-color: none;
                     padding: 0.6rem 0.7rem;
 
                     p {
@@ -247,9 +251,17 @@ section.hero {
     header.navbar {
         .nav-wrapper {
             flex-direction: row-reverse;
-    }
+
+            .hamburgermenu {
+                width: calc(100% - 2rem);
+            }
+        }
         button:last-child {
             display: none !important;
         }
+
+    }
+    .hero-right {
+        display: none !important;
     }
 }
